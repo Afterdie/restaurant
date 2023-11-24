@@ -1,18 +1,19 @@
 import React from 'react'
 
-export default function Menucard() {
+export default function Menucard({props, type, name}) {
+    console.log(props)
   return (
-    <div className='max-w-[1378px] flex gap-[20px] justify-center items-center m-auto'>
+    <div className={`max-w-[1378px] flex ${type? " flex-row-reverse " : ""} gap-[20px] justify-center items-center m-auto`}>
                     <div className='flex-2'>
-                        <img src="/images/menu-starters-bg.jpg" alt="" />
+                        <img src={`/images/menu-${name}-bg.jpg`} alt="" />
                     </div>
                     <div className='flex-1'>
                         <h1>Starters</h1>
                         <div className='flex flex-col justify-center'>
-                            {data.starters.map((item,index) => {
+                            {props.map((item,index) => {
                                 return (
                                     <div className='flex' key={index}>
-                                        <img src={`/images/menu-starter-${index+1}.png`}
+                                        <img src={`/images/menu-${name}-${index+1}.png`}
                                          alt="" className='rounded-full'/>
                                         <div className='flex flex-col'>
                                             <h2>{item.name}</h2>

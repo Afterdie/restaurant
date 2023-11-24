@@ -1,4 +1,5 @@
 import React from 'react'
+import Menucard from '@/components/Menucard'
 
 const data = {
     starters: [
@@ -18,6 +19,42 @@ const data = {
             name: "Tomato Bruschetta",
             price: 30
         }
+    ],
+    main: [
+        {
+            name: "Grilled Salmon with Dil Sauce",
+            price: 40
+        },
+        {
+            name: "Roast Beef with Vegetable",
+            price: 20
+        },
+        {
+            name: "Markesh Vegetarian Curry",
+            price: 25
+        },
+        {
+            name: "Spicy Vegan Potato Curry",
+            price: 30
+        }
+    ],
+    dessert: [
+        {
+            name: "Apple Pie with Cream",
+            price: 40
+        },
+        {
+            name: "Lemon Meringue Pie",
+            price: 20
+        },
+        {
+            name: "Tender Octopus and Fennel",
+            price: 50
+        },
+        {
+            name: "Sea Bass Cevich",
+            price: 35
+        }
     ]
 }
 
@@ -25,30 +62,15 @@ export default function page() {
   return (
     <div className='flex flex-col'>
         <section className=''>
-                <div className='max-w-[1378px] flex gap-[20px] justify-center items-center m-auto'>
-                    <div className='flex-2'>
-                        <img src="/images/menu-starters-bg.jpg" alt="" />
-                    </div>
-                    <div className='flex-1'>
-                        <h1>Starters</h1>
-                        <div className='flex flex-col justify-center'>
-                            {data.starters.map((item,index) => {
-                                return (
-                                    <div className='flex' key={index}>
-                                        <img src={`/images/menu-starter-${index+1}.png`}
-                                         alt="" className='rounded-full'/>
-                                        <div className='flex flex-col'>
-                                            <h2>{item.name}</h2>
-                                            <p>Candied Jerusalem artichokes, truffle</p>
-                                        </div>
-                                        <h1>${item.price}</h1>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <button className='px-[68px] py-[20px] border-2 border-custom-primary mt-[65px] text-custom-primary'>See all dishes</button>
-                    </div>
+                <Menucard props={data.starters} type={false} name="starter"/>
+                <div>
+                    <img src="/images/menu-splash-1.png" alt="" />
                 </div>
+                <Menucard props={data.main} type={true} name="main"/>
+                <div>
+                    <img src="/images/menu-splash-2.png" alt="" />
+                </div>
+                <Menucard props={data.dessert} type={false} name="dessert"/>
         </section>
     </div>
   )
